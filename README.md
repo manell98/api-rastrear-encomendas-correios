@@ -1,7 +1,3 @@
-# Awesome Project Build with TypeORM
+# Api-Rastrear-Encomendas-Correios
 
-Steps to run this project:
-
-1. Run `npm i` command
-2. Setup database settings inside `ormconfig.json` file
-3. Run `npm start` command
+Sistema básico que tem o único intuito de rastrear uma encomenda fazendo integração com a API dos correios.
