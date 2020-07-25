@@ -13,14 +13,4 @@ export class ApiRastreioController {
 
         return this.service.rastreiaEncomenda(body);
     }
-
-    public async buscaEncomendaPorId(id: number) {
-
-        return this.service.buscaEncomendaPorId(id);
-    }
-
-    public async salvaCodRastreio(body: ICodigoRastreio) {
-
-        return this.service.salvaCodRastreio(body);
-    }
 }
