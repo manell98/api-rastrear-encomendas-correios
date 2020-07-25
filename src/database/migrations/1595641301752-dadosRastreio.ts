@@ -6,7 +6,7 @@ export class DadosRastreio1595641301752 implements MigrationInterface {
 
         await queryRunner.createTable(
             new Table({
-                name: 'dadosRastreio',
+                name: 'codigos_rastreio',
                 columns: [
                     {
                         name: 'id',
@@ -15,23 +15,7 @@ export class DadosRastreio1595641301752 implements MigrationInterface {
                         generationStrategy: "increment"
                     },
                     {
-                        name: 'local',
-                        type: 'varchar'
-                    },
-                    {
-                        name: 'status',
-                        type: 'varchar'
-                    },
-                    {
-                        name: 'data',
-                        type: 'varchar'
-                    },
-                    {
-                        name: 'origem',
-                        type: 'varchar'
-                    },
-                    {
-                        name: 'destino',
+                        name: 'codigo',
                         type: 'varchar'
                     },
                     {
