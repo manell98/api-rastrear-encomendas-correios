@@ -5,7 +5,7 @@ import Joi, { ValidationResult } from "@hapi/joi";
 
 const { rastrearEncomendas } = require('correios-brasil')
 
-export class CodigoRastreioService {
+export class ApiRastreioService {
 
     private conexaoDb = getConnection();
 
@@ -17,7 +17,18 @@ export class CodigoRastreioService {
 
         const result = await rastrearEncomendas(codRastreio);
 
-        return result;
+        if(result) { return result; }
+
+        return [];
+    }
+
+    public async buscaEncomendaPorId(id: number) {
+
+        const result = await this.conexaoDb.manager.findOne(CodigosRastreioEntity, id);
+
+        if(result) { return result; }
+
+        return [];
     }
 
     public async salvaCodRastreio(body: any) {

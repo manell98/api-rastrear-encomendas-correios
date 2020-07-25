@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import codigoRastreioRouter from "./codigoRastreio.router";
+import apiRastreioRouter from "./apiRastreioRouter";
 
 const routes = Router();
 
-routes.use(codigoRastreioRouter);
+routes.use(apiRastreioRouter);
 
 export default routes;
