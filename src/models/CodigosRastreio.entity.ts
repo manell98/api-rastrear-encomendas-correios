@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity("codigos_rastreio")
 export class CodigosRastreioEntity {
@@ -6,7 +6,9 @@ export class CodigosRastreioEntity {
     @PrimaryGeneratedColumn('increment')
     id: number;
 
-    @Column()
+    @Column({
+        unique: true
+    })
     codigo: string;
 
     @Column()

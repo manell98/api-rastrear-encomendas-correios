@@ -1,11 +1,11 @@
-import { CodigoRastreioService } from "../services/codigoRastreio.service";
+import { ApiRastreioService } from "../services/apiRastreioService";
 import { ICodigoRastreio } from "../models/ICodigoRastreio";
 
-export class CodigoRastreioController {
+export class ApiRastreioController {
 
-    private service: CodigoRastreioService;
+    private service: ApiRastreioService;
 
-    constructor({ service = new CodigoRastreioService() }) {
+    constructor({ service = new ApiRastreioService() }) {
         this.service = service;
     }
 

@@ -2,7 +2,7 @@ import { ICodigoRastreio } from "../models/ICodigoRastreio";
 
 const { rastrearEncomendas } = require('correios-brasil')
 
-export class CodigoRastreioService {
+export class ApiRastreioService {
 
     public async rastreiaEncomenda(body: ICodigoRastreio) {
 
@@ -12,6 +12,8 @@ export class CodigoRastreioService {
 
         const result = await rastrearEncomendas(codRastreio);
 
-        return result;
+        if(result) { return result; }
+
+        return [];
     }
 }
