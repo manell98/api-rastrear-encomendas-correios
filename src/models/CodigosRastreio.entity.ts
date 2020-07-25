@@ -3,7 +3,7 @@ import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 @Entity("codigos_rastreio")
 export class CodigosRastreioEntity {
 
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('increment')
     id: number;
 
     @Column()
