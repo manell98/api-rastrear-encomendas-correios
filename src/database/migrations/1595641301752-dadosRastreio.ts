@@ -16,7 +16,8 @@ export class DadosRastreio1595641301752 implements MigrationInterface {
                     },
                     {
                         name: 'codigo',
-                        type: 'varchar'
+                        type: 'varchar',
+                        isUnique: true
                     },
                     {
                         name: 'created_At',
@@ -35,7 +36,7 @@ export class DadosRastreio1595641301752 implements MigrationInterface {
 
     public async down(queryRunner: QueryRunner): Promise<void> {
 
-        await queryRunner.dropTable('dadosRastreio');
+        await queryRunner.dropTable('codigos_rastreio');
     }
 
 }

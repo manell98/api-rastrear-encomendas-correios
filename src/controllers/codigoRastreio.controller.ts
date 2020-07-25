@@ -13,4 +13,9 @@ export class CodigoRastreioController {
 
         return this.service.rastreiaEncomenda(body);
     }
+
+    public async salvaCodRastreio(body: ICodigoRastreio) {
+
+        return this.service.salvaCodRastreio(body);
+    }
 }
