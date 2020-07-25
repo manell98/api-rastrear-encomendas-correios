@@ -1,8 +1,17 @@
+import { ICodigoRastreio } from "../models/ICodigoRastreio";
+
+const { rastrearEncomendas } = require('correios-brasil')
+
 export class CodigoRastreioService {
 
-    public async rastreiaEncomenda(body: any) {
+    public async rastreiaEncomenda(body: ICodigoRastreio) {
 
-        console.log("RESPOSTA: ", body);
-        return;
+        const codRastreio: Array<string|undefined> = [];
+
+        codRastreio.push(body.codRastreio);
+
+        const result = await rastrearEncomendas(codRastreio);
+
+        return result;
     }
 }

@@ -1,4 +1,5 @@
 import { CodigoRastreioService } from "../services/codigoRastreio.service";
+import { ICodigoRastreio } from "../models/ICodigoRastreio";
 
 export class CodigoRastreioController {
 
@@ -8,7 +9,7 @@ export class CodigoRastreioController {
         this.service = service;
     }
 
-    public async rastreiaEncomenda(body: any) {
+    public async rastreiaEncomenda(body: ICodigoRastreio) {
 
         return this.service.rastreiaEncomenda(body);
     }
