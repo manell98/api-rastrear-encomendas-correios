@@ -1,23 +1,37 @@
-import { ICodigoRastreio } from "../models/ICodigoRastreio";
-import { getConnection } from "typeorm";
 import { CodigosRastreioEntity } from "../models/CodigosRastreio.entity";
+import { getConnection } from "typeorm";
+import { ICodigoRastreio } from "../models/ICodigoRastreio";
 import Joi, { ValidationResult } from "@hapi/joi";
 
-const { rastrearEncomendas } = require('correios-brasil')
-
-export class CodigoRastreioService {
+export class ApiMantemCodRastreioService {
 
     private conexaoDb = getConnection();
 
-    public async rastreiaEncomenda(body: ICodigoRastreio) {
+    public async buscaTodosCodRastreio() {
 
-        const codRastreio: Array<string|undefined> = [];
+        const result = await this.conexaoDb.manager.find(CodigosRastreioEntity);
 
-        codRastreio.push(body.codRastreio);
+        if(result) { return result; }
 
-        const result = await rastrearEncomendas(codRastreio);
+        return [];
+    }
 
-        return result;
+    public async buscaCodRastreioPorId(id: number) {
+
+        const result = await this.conexaoDb.manager.findOne(CodigosRastreioEntity, id);
+
+        if(result) { return result; }
+
+        return [];
+    }
+
+    public async deletaCodRastreio(id: number) {
+
+        const result = await this.conexaoDb.manager.delete(CodigosRastreioEntity, id);
+
+        if(result) { return []; }
+
+        return `OCORREU UM ERRO AO DELETAR O CÓDIGO DE ID: ${id}`;
     }
 
     public async salvaCodRastreio(body: any) {
