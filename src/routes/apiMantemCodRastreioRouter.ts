@@ -6,6 +6,20 @@ const apiMantemCodRastreioRouter = Router();
 
 const path = "/apiMantemCodRastreio";
 
+apiMantemCodRastreioRouter.get(`${path}/`, (request: express.Request, response: express.Response, next: express.NextFunction) => {
+
+    const apiMantemCodRastreioController = new ApiMantemCodRastreioController({});
+    apiMantemCodRastreioController.buscaTodosCodRastreio()
+        .then(resposta => {
+            response.json(resposta);
+            next();
+        })
+        .catch(error => {
+            console.log(error);
+            next(error);
+        })
+});
+
 apiMantemCodRastreioRouter.get(`${path}/:id`, (request: express.Request, response: express.Response, next: express.NextFunction) => {
 
     const apiMantemCodRastreioController = new ApiMantemCodRastreioController({});

@@ -9,6 +9,11 @@ export class ApiMantemCodRastreioController {
         this.service = service;
     }
 
+    public async buscaTodosCodRastreio() {
+
+        return this.service.buscaTodosCodRastreio();
+    }
+
     public async buscaCodRastreioPorId(id: number) {
 
         return this.service.buscaCodRastreioPorId(id);

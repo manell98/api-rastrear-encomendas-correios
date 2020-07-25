@@ -7,6 +7,15 @@ export class ApiMantemCodRastreioService {
 
     private conexaoDb = getConnection();
 
+    public async buscaTodosCodRastreio() {
+
+        const result = await this.conexaoDb.manager.find(CodigosRastreioEntity);
+
+        if(result) { return result; }
+
+        return [];
+    }
+
     public async buscaCodRastreioPorId(id: number) {
 
         const result = await this.conexaoDb.manager.findOne(CodigosRastreioEntity, id);
