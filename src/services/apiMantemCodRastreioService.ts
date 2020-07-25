@@ -16,6 +16,15 @@ export class ApiMantemCodRastreioService {
         return [];
     }
 
+    public async deletaCodRastreio(id: number) {
+
+        const result = await this.conexaoDb.manager.delete(CodigosRastreioEntity, id);
+
+        if(result) { return []; }
+
+        return `OCORREU UM ERRO AO DELETAR O CÓDIGO DE ID: ${id}`;
+    }
+
     public async salvaCodRastreio(body: any) {
 
         const obj = new CodigosRastreioEntity();

@@ -4,12 +4,26 @@ import apiRastreioRouter from "./apiRastreioRouter";
 
 const apiMantemCodRastreioRouter = Router();
 
-const path = "/apiMantemCodRastreioRouter";
+const path = "/apiMantemCodRastreio";
 
 apiMantemCodRastreioRouter.get(`${path}/:id`, (request: express.Request, response: express.Response, next: express.NextFunction) => {
 
     const apiMantemCodRastreioController = new ApiMantemCodRastreioController({});
     apiMantemCodRastreioController.buscaCodRastreioPorId(+request.params.id)
+        .then(resposta => {
+            response.json(resposta);
+            next();
+        })
+        .catch(error => {
+            console.log(error);
+            next(error);
+        })
+});
+
+apiMantemCodRastreioRouter.delete(`${path}/:id`, (request: express.Request, response: express.Response, next: express.NextFunction) => {
+
+    const apiMantemCodRastreioController = new ApiMantemCodRastreioController({});
+    apiMantemCodRastreioController.deletaCodRastreio(+request.params.id)
         .then(resposta => {
             response.json(resposta);
             next();

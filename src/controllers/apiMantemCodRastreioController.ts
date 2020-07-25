@@ -14,6 +14,11 @@ export class ApiMantemCodRastreioController {
         return this.service.buscaCodRastreioPorId(id);
     }
 
+    public async deletaCodRastreio(id: number) {
+
+        return this.service.deletaCodRastreio(id);
+    }
+
     public async salvaCodRastreio(body: ICodigoRastreio) {
 
         return this.service.salvaCodRastreio(body);
