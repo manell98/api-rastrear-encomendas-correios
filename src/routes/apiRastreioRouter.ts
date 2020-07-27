@@ -10,6 +10,7 @@ apiRastreioRouter.get(`${path}/`, (request: express.Request, response: express.R
     const apiRastreioController = new ApiRastreioController({});
     apiRastreioController.rastreiaEncomenda(request.query)
         .then(resposta => {
+            response.set('Access-Control-Allow-Origin', '*');
             response.json(resposta);
             next();
         })

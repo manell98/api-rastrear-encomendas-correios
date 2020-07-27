@@ -11,6 +11,7 @@ apiMantemCodRastreioRouter.get(`${path}/`, (request: express.Request, response: 
     const apiMantemCodRastreioController = new ApiMantemCodRastreioController({});
     apiMantemCodRastreioController.buscaTodosCodRastreio()
         .then(resposta => {
+            response.set('Access-Control-Allow-Origin', '*');
             response.json(resposta);
             next();
         })
@@ -25,6 +26,7 @@ apiMantemCodRastreioRouter.get(`${path}/:id`, (request: express.Request, respons
     const apiMantemCodRastreioController = new ApiMantemCodRastreioController({});
     apiMantemCodRastreioController.buscaCodRastreioPorId(+request.params.id)
         .then(resposta => {
+            response.set('Access-Control-Allow-Origin', '*');
             response.json(resposta);
             next();
         })
@@ -39,6 +41,7 @@ apiMantemCodRastreioRouter.delete(`${path}/:id`, (request: express.Request, resp
     const apiMantemCodRastreioController = new ApiMantemCodRastreioController({});
     apiMantemCodRastreioController.deletaCodRastreio(+request.params.id)
         .then(resposta => {
+            response.set('Access-Control-Allow-Origin', '*');
             response.json(resposta);
             next();
         })
@@ -53,6 +56,7 @@ apiRastreioRouter.post(`${path}/`, (request: express.Request, response: express.
     const apiMantemCodRastreioController = new ApiMantemCodRastreioController({});
     apiMantemCodRastreioController.salvaCodRastreio(request.body)
         .then(resposta => {
+            response.set('Access-Control-Allow-Origin', '*');
             response.json(resposta);
             next();
         })
